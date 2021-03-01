@@ -1,4 +1,4 @@
 # solutions
-my solutions
-zajrzyj[tutaj] https:/zen-studio.pl
+## my solutions
+
 files with my solutions of homeworks
