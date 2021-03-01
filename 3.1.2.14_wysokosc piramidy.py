@@ -8,6 +8,5 @@ while zostaloBlokow > wysokosc:
     uzytychBlokow += 1 * wysokosc
     zostaloBlokow = blokow - uzytychBlokow
 
-    
 
 print("Wysokość piramidy wynosi:", wysokosc)
