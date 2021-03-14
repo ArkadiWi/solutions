@@ -1,7 +1,15 @@
+import datetime
+
 print('Program do odkodowania znaków wprowadzonych przez użytkownika')
 log = ''
 password = ''
 solution = ''
+tablZnak = [chr(x) for x in range(32, 127)]
+liczFun = 0
+login = ''
+haslo = ''
+licznik1 = 0
+licznik2 = 0
 
 
 def inputLogin():
@@ -26,49 +34,81 @@ def inputPassword():
         return password
 
 
-tablZnak = [chr(x) for x in range(32, 127)]
-tablZnak.insert(0, chr(0))
-print(tablZnak)
-
-
 def solveIt(slowo):
     # Odgadnięcie wpisanych wartości przez użytkownika
-    print('Jestem w funkcji i szukam: ' + slowo)
-    wait = input('wait')
-    lst = []
+    global liczFun, login, haslo, licznik1, licznik2
     licznik = 0
-    global solution
+    liczFun += 1
 
-    if len(log) > 0:
+    if len(slowo) == 1:
+        for i in range(len(tablZnak)):
+            licznik += 1
+            solution = tablZnak[i]
+            print(solution, end=' ')
+            if solution == slowo:
+                break
+
+    elif len(slowo) == 2:
         for i in range(len(tablZnak)):
             for j in range(len(tablZnak)):
                 licznik += 1
-                solution = tablZnak[i]+tablZnak[j]
-                lst.append(solution)
-                print(solution)
+                solution = tablZnak[i] + tablZnak[j]
+                print(solution, end=' ')
                 if solution == slowo:
-                    print('Szukane słowo to: ' + solution)
                     break
-    print(lst)
-    print(licznik)
-
-    # for i in range(len(tablZnak)):
-    #     for j in range(len(tablZnak)):
-    #         for k in range(len(tablZnak)):
-    #             for l in range(len(tablZnak)):
-    #                 solution = chr(tablZnak[l]) + \
-    #                     chr(tablZnak[k])+chr(tablZnak[j])+chr(tablZnak[i])
-    #                 print(solution)
+            if solution == slowo:
+                break
+    elif len(slowo) == 3:
+        for i in range(len(tablZnak)):
+            for j in range(len(tablZnak)):
+                for k in range(len(tablZnak)):
+                    licznik += 1
+                    solution = tablZnak[i] + tablZnak[j] + tablZnak[k]
+                    print(solution, end=' ')
+                    if solution == slowo:
+                        break
+                if solution == slowo:
+                    break
+            if solution == slowo:
+                break
+    elif len(slowo) == 4:
+        for i in range(len(tablZnak)):
+            for j in range(len(tablZnak)):
+                for k in range(len(tablZnak)):
+                    for l in range(len(tablZnak)):
+                        licznik += 1
+                        solution = tablZnak[i] + tablZnak[j] + \
+                            tablZnak[k] + tablZnak[l]
+                        print(solution, end=' ')
+                        if solution == slowo:
+                            break
+                    if solution == slowo:
+                        break
+                if solution == slowo:
+                    break
+            if solution == slowo:
+                break
+    if liczFun == 1:
+        login = solution
+        licznik1 = licznik
+    elif liczFun == 2:
+        haslo = solution
+        licznik2 = licznik
 
 
 inputLogin()
-print(len(tablZnak))
-print(len(log))
+inputPassword()
+startTime = datetime.datetime.now()
 solveIt(log)
+solveIt(password)
 
+endTime = datetime.datetime.now()
+elapsedTime = endTime - startTime
 
-# log1 = chr(tablZnak[4])+chr(tablZnak[60])
-# print(log1)
-
-# for znak in tablZnak:
-#     print(chr(znak))
+if login == log and haslo == password:
+    print('\n\t.......Login znaleziony po: ', licznik1, 'próbach.')
+    print('\n\t.......Hasło znalezione po: ', licznik2, 'próbach.')
+    print('W czasie: ', elapsedTime)
+    print('\tLogin to: ', login, '\n\tHasło to: ', haslo)
+else:
+    print('\n\tNie udało się odgadnąć hasła. Zajęło to: ', elapsedTime)
