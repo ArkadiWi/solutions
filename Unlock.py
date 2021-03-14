@@ -44,7 +44,7 @@ def solveIt(slowo):
         for i in range(len(tablZnak)):
             licznik += 1
             solution = tablZnak[i]
-            print(solution, end=' ')
+            # print(solution, end=' ')
             if solution == slowo:
                 break
 
@@ -53,7 +53,7 @@ def solveIt(slowo):
             for j in range(len(tablZnak)):
                 licznik += 1
                 solution = tablZnak[i] + tablZnak[j]
-                print(solution, end=' ')
+                # print(solution, end=' ')
                 if solution == slowo:
                     break
             if solution == slowo:
@@ -64,7 +64,7 @@ def solveIt(slowo):
                 for k in range(len(tablZnak)):
                     licznik += 1
                     solution = tablZnak[i] + tablZnak[j] + tablZnak[k]
-                    print(solution, end=' ')
+                    # print(solution, end=' ')
                     if solution == slowo:
                         break
                 if solution == slowo:
@@ -79,7 +79,7 @@ def solveIt(slowo):
                         licznik += 1
                         solution = tablZnak[i] + tablZnak[j] + \
                             tablZnak[k] + tablZnak[l]
-                        print(solution, end=' ')
+                        # print(solution, end=' ')
                         if solution == slowo:
                             break
                     if solution == slowo:
