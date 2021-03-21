@@ -1,5 +1,9 @@
 # Ultimate version
 
+class LongKey(ValueError):
+    pass
+
+
 def podajKlucz():
     global klucz
     try:
@@ -13,6 +17,11 @@ tekst = input("Wpisz wiadomość: ")
 klucz = 0
 podajKlucz()
 
+while klucz > 25:
+    klucz -= 25
+
+
+print('klucz wynosi: ', klucz)
 
 szyfr = ''
 
@@ -22,13 +31,13 @@ for char in tekst:
     elif ord(char) >= 97 and ord(char) <= 122:
         kod = ord(char) + klucz
         if kod > ord('z'):
-            kod = ord('a')
+            kod = ord('a') + klucz
         szyfr += chr(kod)
 
     elif ord(char) >= 65 and ord(char) <= 90:
         kod = ord(char) + klucz
         if kod > ord('Z'):
-            kod = ord('A')
+            kod = ord('A') + klucz
         szyfr += chr(kod)
 
-print(szyfr)
+print('sztyfr to: ',szyfr)
