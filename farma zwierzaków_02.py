@@ -10,8 +10,8 @@ class Critter(object):
             f'It\'s your lucky day - you\'ve created new animal: {self.__name}. Good for you!!!!')
 
     def __pass_time(self):
-        self.__hunger += 2
-        self.__boredom += 2
+        self.__hunger += 1
+        self.__boredom += 1
 
     def __str__(self):
         return f'I\'m Critter object. My name is: {self.__name}. And {self.mood}'
@@ -31,6 +31,7 @@ class Critter(object):
 
     def talk(self):
         print(f'My name is {self.__name} And I\'m {self.mood}')
+        self.__pass_time()
 
     def name(self):
         return self.__name
