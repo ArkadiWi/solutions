@@ -14,7 +14,7 @@ class Critter(object):
         self.__boredom += 2
 
     def __str__(self):
-        return f'I\'m Critter object. My name is: {self.__name}. And I\'m {self.mood}'
+        return f'I\'m Critter object. My name is: {self.__name}. And {self.mood}'
 
     @property
     def mood(self):
